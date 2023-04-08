@@ -21,23 +21,23 @@ export default async function Layout({ children }: Props) {
       revalidate: 5,
     },
   };
-  const urlTime = "http:///worldtimeapi.org/api/timezone/Asia/Jakarta";
-  const reqTime1 = await fetch(urlTime, opt1);
-  const time1 = await reqTime1.json();
+  // const urlTime = "http:///worldtimeapi.org/api/timezone/Asia/Jakarta";
+  // const reqTime1 = await fetch(urlTime, opt1);
+  // const time1 = await reqTime1.json();
 
-  const reqTime2 = await fetch(urlTime, opt2);
-  const time2 = await reqTime2.json();
+  // const reqTime2 = await fetch(urlTime, opt2);
+  // const time2 = await reqTime2.json();
 
-  const formatDate = (d: string) => {
-    const date = new Date(d);
-    return date.toLocaleTimeString();
-  };
+  // const formatDate = (d: string) => {
+  //   const date = new Date(d);
+  //   return date.toLocaleTimeString();
+  // };
 
   return (
     <div>
       <h1>Login {data.full_name}</h1>
-      <p>{formatDate(time1.datetime)}</p>
-      <p>{formatDate(time2.datetime)}</p>
+      {/* <p>{formatDate(time1.datetime)}</p>
+      <p>{formatDate(time2.datetime)}</p> */}
       {children}
     </div>
   );
