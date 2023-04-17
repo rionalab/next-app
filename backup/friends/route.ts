@@ -1,6 +1,6 @@
 import { prismaError, prismaSuccess } from '@/helpers/api';
 import { Messages } from '@/helpers/messages';
-import { prisma } from '@/lib/db';
+import { prisma } from '@/lib/prisma/db';
 
 export async function GET(request: Request) {
    const data = await prisma.friend.findMany();

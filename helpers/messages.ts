@@ -3,4 +3,5 @@ export enum Messages {
    Unknown = 'unknown',
    DeleteSuccess = 'Data has been deleted successfully.',
    CreateSuccess = 'Data has been created successfully.',
+   CreateError = 'Fail to create data.',
 }

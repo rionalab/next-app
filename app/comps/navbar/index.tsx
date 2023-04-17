@@ -7,9 +7,12 @@ function Navbar() {
       <div className={style.navbar}>
          <NavLink href="/">Home</NavLink>
          <NavLink href="/login">Login</NavLink>
+         <NavLink href="/login2">Login2</NavLink>
          <NavLink href="/posts">Posts</NavLink>
          <NavLink href="/projects">Projects</NavLink>
          <NavLink href="/friends">friends</NavLink>
+         <NavLink href="/friendsclient">friendsclient</NavLink>
+         <NavLink href="/repos">repos</NavLink>
       </div>
    );
 }

@@ -1,8 +1,8 @@
 export const metadata = {
-   title: `Posts`,
+   title: `Login`,
 };
 function Page() {
-   return <div>Posts</div>;
+   return <div>Login</div>;
 }
 
 export default Page;

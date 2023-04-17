@@ -1,14 +1,14 @@
-import { Open_Sans } from "next/font/google";
+import { Open_Sans } from 'next/font/google';
 
 const OpenSans = Open_Sans({
-  subsets: ["latin"],
+   subsets: ['latin'],
 });
 
 export default function Home() {
-  return (
-    <main className={OpenSans.className}>
-      HOmepagessnpm
-      {/* <Trending /> */}
-    </main>
-  );
+   return (
+      <main className={OpenSans.className}>
+         Homepage
+         {/* <Trending /> */}
+      </main>
+   );
 }

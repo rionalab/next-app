@@ -1,52 +1,43 @@
-'use client';
-
+import FriendList from '@/comps/friend/FriendList';
 import { apiBaseUrl } from '@/helpers/app';
 import { handleGet } from '@/helpers/request';
+import * as model_friend from '@/lib/prisma/friend.prisma';
 import { PrismaResponse } from '@/types/api';
 import { FriendsAPI } from '@/types/friend';
 import { Prisma } from '@prisma/client';
-import { useState, use } from 'react';
+import useSWR from 'swr';
 
-const getFriends = async () => {
-   const res = await fetch(`${apiBaseUrl}/friends`);
-   return await res.json();
+export const metadata = {
+   title: `friends`,
 };
 
+async function getFriends() {
+   const url = `${apiBaseUrl}/friend`;
+   const res = await fetch(url);
+   return await res.json();
+}
+
 async function Page() {
-   const [loadingDelete, setLoadingDelete] = useState<Number[]>([]);
-
-   const friends: any = use(getFriends());
-
-   const handleDelete = async (id: string) => {
-      setLoadingDelete([...loadingDelete, Number(id)]);
-      // const deleteFriend = await fetch(`${apiBaseUrl}/api/friends${id}`, {
-      //    method: 'DELETE',
-      // });
-      // setLoadingDelete(loadingDelete.filter((id) => id === Number(id)));
-   };
-
-   // const friends = use()
+   const friends: any = await getFriends();
+   // const friends: any = await model_friend.index();
 
    return (
       <div>
-         <h3>Friends</h3>
-         <ol style={{ marginLeft: `40px` }}>
-            {friends.data.map((friend) => {
-               return (
-                  <li key={friend.id}>
-                     {friend.name}
-                     <button
-                        disabled={loadingDelete.includes(friend.id)}
-                        onClick={() => handleDelete(String(friend.id))}
-                     >
-                        Delete
-                     </button>
-                  </li>
-               );
-            })}
-         </ol>
+         <h3>Friendsx</h3>
+         {/* {JSON.stringify(friends)} */}
+         <FriendList friends={friends} />
       </div>
    );
 }
 
 export default Page;
+
+// const handleDelete = async (id: string) => {
+//    setLoadingDelete([...loadingDelete, Number(id)]);
+//    // const deleteFriend = await fetch(`${apiBaseUrl}/api/friends${id}`, {
+//    //    method: 'DELETE',
+//    // });
+//    // setLoadingDelete(loadingDelete.filter((id) => id === Number(id)));
+// };
+
+// const { data, error, isLoading } = useSWR('/api/friends', fetcher);
