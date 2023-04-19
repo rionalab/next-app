@@ -1,3 +1,4 @@
+import Navbar from "@/comps/navbar";
 import "./globals.css";
 
 export const metadata = {
@@ -13,7 +14,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <h1>NEXT APP</h1>
+        <Navbar />
         {children}
       </body>
     </html>
